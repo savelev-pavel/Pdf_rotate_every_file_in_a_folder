@@ -11,11 +11,11 @@ def get_file_list(files_path:str) -> list:
     return filelist
 
 def main(inputpath:str, filelist:list, turndegrees:int):
-    output_writer = PdfFileWriter()
     os.chdir(inputpath)
     os.mkdir("rotated" + str(turndegrees))
 
     for filename in filelist:
+        output_writer = PdfFileWriter()
         with open(inputpath+filename, "rb") as inputf:
             pdfOne = PdfFileReader(inputf)
             numPages = pdfOne.numPages
